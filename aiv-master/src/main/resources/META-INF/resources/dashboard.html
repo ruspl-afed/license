@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        body {
+          font-family: "Lato", sans-serif;
+        }
+        
+        .sidenav {
+          height: 100%;
+          width: 0;
+          position: fixed;
+          z-index: 1;
+          top: 0;
+          left: 0;
+          background-color: #111;
+          overflow-x: hidden;
+          transition: 0.5s;
+          padding-top: 60px;
+        }
+        
+        .sidenav a {
+          padding: 8px 8px 8px 32px;
+          text-decoration: none;
+          font-size: 25px;
+          color: #818181;
+          display: block;
+          transition: 0.3s;
+        }
+        
+        .sidenav a:hover {
+          color: #f1f1f1;
+        }
+        
+        .sidenav .closebtn {
+          position: absolute;
+          top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+        }
+        
+        @media screen and (max-height: 450px) {
+          .sidenav {padding-top: 15px;}
+          .sidenav a {font-size: 18px;}
+        }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css"></link>
+         <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        </head>
+<body>
+    <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="documents.html">Documents</a>
+        <a href="master.html">Master Data <i class="fa fa-ban" style="color:red" title="Restricted" aria-hidden="true"></i></a>
+      </div>
+      
+      <h2>AIV Menu</h2>
+      <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+      
+      <script>
+      function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+      }
+      </script>
+<p id="demo"></p>
+
+<div class="container">     
+    <table class="table table-hover" id="mytb">
+
+    </table>
+</div>
+
+<script>
+function loadDoc() {
+  const xhttp = new XMLHttpRequest();
+  xhttp.onload = function() {
+    //document.getElementById("demo").innerHTML = this.responseText;
+
+    var j1 = JSON.parse(this.responseText);
+
+    var tablecontents = "";
+
+                tablecontents += "<tr>";
+                    tablecontents += "<th>Name</th>";
+                    tablecontents += "<th>Type</th>";
+                    tablecontents += "<th>Owner</th>";
+                tablecontents += "</tr>";
+
+            for (var i = 0; i < j1.length; i++) {
+                tablecontents += "<tr>";
+                    tablecontents += "<td>" + j1[i]['name'] + "</td>";
+                    tablecontents += "<td>" + j1[i]['type'] + "</td>";
+                    tablecontents += "<td>" + j1[i]['owner'] + "</td>";
+                tablecontents += "</tr>";
+            }
+            document.getElementById("mytb").innerHTML += tablecontents;
+
+
+  }
+  xhttp.open("GET", "rest/dashboard");
+  xhttp.send();
+}
+loadDoc();
+</script>
+
+</body>
+</html>
