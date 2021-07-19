@@ -1,4 +1,4 @@
-package com.aiv;
+package com.aivhub;
 
 import java.util.ArrayList;
 import java.util.HashMap;
