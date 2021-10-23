@@ -1,6 +1,7 @@
 package com.aivhub;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,11 +11,16 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.aivhub.licensing.AivhubLicensing;
+
 @Path("/dashboard")
 public class Dashboard {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Map<String, Object>> hello() {
+		if (!new AivhubLicensing().get().canUse("dash")) {
+			return Collections.emptyList();
+		}
         List<Map<String, Object>> lm= new ArrayList<Map<String, Object>>();
         Map<String, Object> m =new HashMap<String, Object>();
 
