@@ -25,7 +25,7 @@ final class AivhubKeyKeeper implements KeyKeeper {
 
 	@Override
 	public InputStream productPublicKey() throws LicensingException {
-		return getClass().getResourceAsStream("licensing" + "/" + keyFile());
+		return getClass().getResourceAsStream("/META-INF/licensing/" + keyFile());
 	}
 
 	private String keyFile() {

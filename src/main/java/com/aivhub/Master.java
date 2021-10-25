@@ -11,6 +11,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
+import com.aivhub.licensing.AivhubFeatures;
 import com.aivhub.licensing.AivhubLicensing;
 
 @Path("/master")
@@ -19,7 +20,8 @@ public class Master {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Map<String, Object>> hello() {
-		if (!new AivhubLicensing().get().canUse("ds")) {
+		//TODO: AF: use "Passage#acquireLicense(String)" to see the diagnostic
+		if (!new AivhubLicensing().get().canUse(new AivhubFeatures().typeDs().identifier())) {
 			return Collections.emptyList();
 		}
 
