@@ -11,7 +11,7 @@ import org.eclipse.passage.lic.base.io.FileNameFromLicensedProduct;
 import org.eclipse.passage.lic.base.io.PassageFileExtension;
 
 final class AivhubKeyKeeper implements KeyKeeper {
-	
+
 	private final Supplier<LicensedProduct> product;
 
 	public AivhubKeyKeeper(Supplier<LicensedProduct> product) {

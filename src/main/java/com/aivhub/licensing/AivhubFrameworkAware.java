@@ -9,9 +9,9 @@ import org.eclipse.passage.lic.api.ServiceInvocationResult;
 import org.eclipse.passage.lic.base.FrameworkAware;
 
 final class AivhubFrameworkAware implements FrameworkAware {
-	
+
 	private final Framework framework;
-	
+
 	public AivhubFrameworkAware(Framework framework) {
 		this.framework = Objects.requireNonNull(framework, "AivhubFrameworkAware::framework");
 	}
@@ -23,7 +23,7 @@ final class AivhubFrameworkAware implements FrameworkAware {
 
 	@Override
 	public <T> Optional<T> withFramework(Function<Framework, T> invoke) {
-		return Optional.ofNullable(invoke.apply(framework)) ;
+		return Optional.ofNullable(invoke.apply(framework));
 	}
 
 }

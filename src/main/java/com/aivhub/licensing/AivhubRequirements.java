@@ -20,7 +20,7 @@ final class AivhubRequirements implements ResolvedRequirements {
 
 	@Override
 	public ServiceInvocationResult<Collection<Requirement>> all() {
-		//FIXME: AF: we can either hard code them here or read from some config
+		// FIXME: AF: we can either hard code them here or read from some config
 		Collection<Requirement> all = new ArrayList<>();
 		all.add(new BaseRequirement(//
 				new AivhubFeatures().typeDs(), //

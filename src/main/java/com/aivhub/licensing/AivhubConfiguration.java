@@ -70,11 +70,10 @@ public final class AivhubConfiguration implements AccessCycleConfiguration {
 	private final AgreementAcceptanceService acceptance;
 	private final Registry<ConditionMiningTarget, MinedConditions> conditions;
 	private final Registry<ConditionMiningTarget, LicenseAcquisitionService> acquirers;
-	
+
 	public AivhubConfiguration(Supplier<LicensedProduct> product) {
 		requirements = new ReadOnlyRegistry<>(Arrays.asList(//
-				new AivhubRequirements()
-		));
+				new AivhubRequirements()));
 		transports = new ReadOnlyRegistry<>(Arrays.asList(//
 				new XmiConditionTransport() //
 		));
@@ -109,8 +108,7 @@ public final class AivhubConfiguration implements AccessCycleConfiguration {
 				new UserHomeResidentConditions(miningEquipment())//
 		));
 		this.acquirers = new ReadOnlyRegistry<>(Arrays.asList(//
-				new UserHomeLicenseAcquisitionService()
-		));
+				new UserHomeLicenseAcquisitionService()));
 	}
 
 	@Override

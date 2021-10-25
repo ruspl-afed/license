@@ -9,7 +9,7 @@ public final class AivhubProduct implements Supplier<LicensedProduct> {
 
 	@Override
 	public LicensedProduct get() {
-		//FIXME: AF: read from manifest?
+		// FIXME: AF: read from manifest?
 		String product = "com.aivhub.license";
 		String version = "1.0.0";
 		return new BaseLicensedProduct(product, version);

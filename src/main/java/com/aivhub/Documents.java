@@ -19,7 +19,7 @@ public class Documents {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Map<String, Object>> hello() {
-		//TODO: AF: use "Passage#acquireLicense(String)" to see the diagnostic
+		// TODO: AF: use "Passage#acquireLicense(String)" to see the diagnostic
 		if (!new AivhubLicensing().get().canUse(new AivhubFeatures().typeReport().identifier())) {
 			return Collections.emptyList();
 		}

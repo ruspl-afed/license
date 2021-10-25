@@ -19,12 +19,13 @@ import com.aivhub.Documents;
 import com.aivhub.Master;
 
 public class LicensingTest {
-	
+
 	@BeforeAll
 	public static void copyLicenseToHome() throws IOException {
 		String licen = "b244d30f-76f2-479f-878f-b8301e84a702.licen";
 		LicensedProduct product = new AivhubProduct().get();
-		Path from = Paths.get(System.getProperty("user.dir"), "licensing", "issued", product.identifier(), product.version(), licen);
+		Path from = Paths.get(System.getProperty("user.dir"), "licensing", "issued", product.identifier(),
+				product.version(), licen);
 		Path to = new PathFromLicensedProduct(//
 				new LicensingFolder(new UserHomePath()), //
 				product).get().resolve(licen);
