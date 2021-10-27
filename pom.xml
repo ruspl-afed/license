@@ -19,18 +19,6 @@
 		<quarkus.platform.version>2.0.2.Final</quarkus.platform.version>
 		<surefire-plugin.version>3.0.0-M5</surefire-plugin.version>
 	</properties>
-	<repositories>
-		<repository>
-			<id>passage-stage</id>
-			<url>https://oss.sonatype.org/content/repositories/orgeclipsepassage-1014</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
